@@ -33,14 +33,14 @@ void init(uint id)
 	//
 	float2 r2 = rand2(seed);
 	float3 pos;
-	pos.x = 0.5 * r2.x * cos(r2.y * 2.0 * 3.141529);
-	pos.z = 0.5 * r2.x * sin(r2.y * 2.0 * 3.141529);
-	pos.y = 2.0;
+	pos.x = 10 * r2.x;// * cos(r2.y * 2.0 * 3.141529);
+	pos.z = 10 * r2.x;//* sin(r2.y * 2.0 * 3.141529);
+	pos.y = 10;
 	//
 	float3 r3 = rand3(seed * 2);
 	float3 vel;
-	vel.x = 3 * r3.x * cos(r3.z * 0.5 * 3.1415) * cos(r3.y * 2.0 * 3.141529);
-	vel.z = 3 * r3.x * cos(r3.z * 0.5 * 3.1415) * sin(r3.y * 2.0 * 3.141529);
+	vel.x = 10 * r3.x * cos(r3.z * 0.5 * 3.1415) * cos(r3.y * 2.0 * 3.141529);
+	vel.z = 10 * r3.x * cos(r3.z * 0.5 * 3.1415) * sin(r3.y * 2.0 * 3.141529);
 	vel.y = 5 * r3.x * sin(r3.z * 0.5 * 3.1415) + 5.0;
 
 	float4 col;
@@ -75,7 +75,7 @@ void init(uint id)
 
 		//
 		pos += vel * deltaTime;
-		vel.y -= 9.8 * deltaTime;
+		vel.y -= 3 * deltaTime;
 
 		//
 		Particles[id.x].pos = pos;
